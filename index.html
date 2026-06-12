@@ -1,49 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Refatorando</title>
+
     <link rel="icon" href="https://cache.refatorando.com/wp-content/uploads/2023/05/Favicon_Refatorando-1-100x100.png" type="image/x-icon">
     <link rel="stylesheet" href="./public/css/styles.css">
 </head>
+
 <body>
-     <div class="login-container">
+    <div class="login-container">
+
         <div class="login-text">
-            <div class="login-text-content">
-                <h2>
-                    Olá!<br>
-                    Seja bem-vindo(a) de volta.
-                </h2>
-                <p>
-                Faça login para continuar acessando a página.
-                </p>
+            <div class="sphere-scene">
+
+                <img
+                    src="./public/images/las-vegas-sphere.png"
+                    alt="Las Vegas Sphere"
+                    class="sphere-photo"
+                >
+
+                <svg class="sphere-face-layer" viewBox="0 0 1024 683" aria-hidden="true">
+                    <defs>
+                        <filter id="soft-blend">
+                            <feGaussianBlur stdDeviation="0.7" />
+                        </filter>
+                    </defs>
+
+                    <ellipse class="face-clean" cx="435" cy="365" rx="36" ry="28" />
+                    <ellipse class="face-clean" cx="520" cy="358" rx="36" ry="28" />
+
+                    <ellipse class="brow-clean" cx="432" cy="334" rx="54" ry="18" />
+                    <ellipse class="brow-clean" cx="520" cy="329" rx="54" ry="18" />
+
+                    <ellipse class="detail-clean" cx="389" cy="347" rx="16" ry="10" />
+                    <ellipse class="detail-clean" cx="475" cy="343" rx="16" ry="10" />
+
+                    <ellipse class="detail-clean" cx="409" cy="349" rx="18" ry="8" />
+                    <ellipse class="detail-clean" cx="495" cy="344" rx="18" ry="8" />
+
+                    <ellipse class="mouth-clean" cx="476" cy="401" rx="20" ry="15" />
+
+                    <ellipse class="sphere-eye" id="left-eye" cx="435" cy="365" rx="22" ry="24" />
+                    <ellipse class="sphere-eye" id="right-eye" cx="520" cy="358" rx="22" ry="24" />
+
+                    <circle class="sphere-pupil" id="left-pupil" cx="435" cy="365" r="8" />
+                    <circle class="sphere-pupil" id="right-pupil" cx="520" cy="358" r="8" />
+
+                    <path class="sphere-brow" id="left-brow" d="M401 333 Q432 327 463 333" />
+                    <path class="sphere-brow" id="right-brow" d="M489 329 Q520 323 551 329" />
+
+                    <path id="sphere-mouth" d="M468 401 Q476 407 484 401" />
+                    <ellipse id="sphere-mouth-shocked" cx="476" cy="401" rx="9" ry="13" />
+                    <path id="sphere-mouth-side" d="M480 401 Q489 406 497 400" />
+                </svg>
+
             </div>
         </div>
-        
-    <div class="login-form">
-    <div class="login-form-content">
-        <img src="./public/images/Logo_Horizontal_colorida_Refatorando_1.png" width="200" alt="Logo Refatorando">
-        <h3>Faça seu Login</h3>
-        <form>
-            <input type="text" placeholder="E-mail">
-            <input type="password" placeholder="Senha">
-            <a href="#">Esqueci minha senha</a>
-            <button>Entrar</button>
-        </form>
-        <div class="login-form-divider">
-            <div> ou faça login com</div>
-        </div>
-        <a href="#" class="login-form-google">
-            <div id="google-container">
-                 <div id="google-icon"></div>
-                 <span id="google-sign-in">Sign in with Google</span> 
+
+        <div class="login-form">
+            <div class="login-form-content">
+
+                <img
+                    src="./public/images/Logo_Horizontal_colorida_Refatorando_1.png"
+                    width="200"
+                    alt="Logo Refatorando"
+                >
+
+                <h3 id="form-title">Faça seu Login</h3>
+
+                <form id="form-login">
+                    <input
+                        id="login-email"
+                        type="email"
+                        placeholder="E-mail"
+                    >
+
+                    <div class="password-container">
+                        <input
+                            id="login-password"
+                            type="password"
+                            placeholder="Senha"
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="login-password"
+                            aria-label="Mostrar senha">
+                        </button>
+                    </div>
+
+                    <a href="#" id="forgot-password">Esqueci minha senha</a>
+
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <form id="form-register" class="hidden">
+                    <input
+                        id="register-name"
+                        type="text"
+                        placeholder="Nome"
+                    >
+
+                    <input
+                        id="register-email"
+                        type="email"
+                        placeholder="E-mail"
+                    >
+
+                    <div class="password-container">
+                        <input
+                            id="register-password"
+                            type="password"
+                            placeholder="Senha"
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="register-password"
+                            aria-label="Mostrar senha">
+                        </button>
+                    </div>
+
+                    <div class="password-container">
+                        <input
+                            id="register-confirm-password"
+                            type="password"
+                            placeholder="Repetir Senha"
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="register-confirm-password"
+                            aria-label="Mostrar senha">
+                        </button>
+                    </div>
+
+                    <button type="submit">Criar Conta</button>
+                </form>
+
+                <p id="message"></p>
+
+                <div id="login-options">
+                    <div class="login-form-divider">
+                        <div>ou faça login com</div>
+                    </div>
+
+                    <a href="#" class="login-form-google">
+                        <div id="google-container">
+                            <div id="google-icon"></div>
+                            <span id="google-sign-in">Sign in with Google</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="login-form-subscribe">
+                    <span id="toggle-text">Não tem uma conta?</span>
+                    <a href="#" id="toggle-form">Inscreva-se</a>
+                </div>
+
             </div>
-        </a>
-        <div class="login-form-subscribe">
-            Não tem uma conta? <a href="#">Inscreva-se</a>
         </div>
+
     </div>
-  </div>
+
+    <script src="./public/js/script.js"></script>
 </body>
 </html>
